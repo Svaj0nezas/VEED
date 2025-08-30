@@ -1,0 +1,24 @@
+using sysbus
+mach create "veed"
+
+logLevel 1
+
+machine LoadPlatformDescription @platforms/boards/veed.repl
+
+emulation CreateSwitch "switch"
+connector Connect sysbus.mac switch
+
+emulation CreateTap "tap0" "tap"
+connector Connect host.tap switch
+
+showAnalyzer sysbus.usart1
+
+sysbus LoadELF @/home/simonas/zephyrproject/zephyr/samples/net/sockets/http_client/build/zephyr/zephyr.elf
+
+set osPanicHook
+"""
+self.ErrorLog("OS Panicked")
+"""
+cpu0 AddSymbolHook "z_fatal_error" $osPanicHook
+
+start

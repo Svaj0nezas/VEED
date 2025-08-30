@@ -1,0 +1,7 @@
+/* Generated automatically. */
+static const char configuration_arguments[] = "/__w/_temp/workspace/build/.build/arm-zephyr-eabi/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=arm-zephyr-eabi --prefix=/__w/_temp/workspace/output/arm-zephyr-eabi --exec_prefix=/__w/_temp/workspace/output/arm-zephyr-eabi --with-local-prefix=/__w/_temp/workspace/output/arm-zephyr-eabi/arm-zephyr-eabi --with-headers=/__w/_temp/workspace/output/arm-zephyr-eabi/arm-zephyr-eabi/include --with-newlib --enable-threads=no --disable-shared --with-pkgversion='Zephyr SDK 0.16.3' --with-bugurl=https://github.com/zephyrproject-rtos/sdk-ng/issues --enable-__cxa_atexit --disable-libgomp --disable-libmudflap --disable-libmpx --disable-libssp --disable-libquadmath --disable-libquadmath-support --disable-libstdcxx-verbose --with-gmp=/__w/_temp/workspace/build/.build/arm-zephyr-eabi/buildtools --with-mpfr=/__w/_temp/workspace/build/.build/arm-zephyr-eabi/buildtools --with-mpc=/__w/_temp/workspace/build/.build/arm-zephyr-eabi/buildtools --with-isl=/__w/_temp/workspace/build/.build/arm-zephyr-eabi/buildtools --enable-lto --enable-target-optspace --disable-nls --enable-multiarch --with-multilib-list=rmprofile --enable-languages=c,c++ --with-gnu-ld --with-gnu-as --enable-initfini-array";
+static const char thread_model[] = "single";
+
+static const struct {
+  const char *name, *value;
+} configure_default_options[] = { { "cpu", "arm7tdmi" }, { "float", "soft" } };

@@ -1,0 +1,31 @@
+logFile $ORIGIN/hello_world-renode.log True
+
+$name?="stm32f746g_disco"
+$bin?=@https://zephyr-dashboard.renode.io/zephyr/ad3df1d0f240f29e07b1620992e2b1aa91e5cf15/stm32f746g_disco/hello_world/hello_world.elf
+$repl?=$ORIGIN/hello_world.repl
+
+using sysbus
+mach create $name
+
+machine LoadPlatformDescription $repl
+
+
+showAnalyzer usart1
+
+usart1 RecordToAsciinema $ORIGIN/hello_world-asciinema
+set osPanicHook
+"""
+self.ErrorLog("OS Panicked")
+"""
+cpu0 AddSymbolHook "z_fatal_error" $osPanicHook
+
+
+macro reset
+"""
+    sysbus LoadELF $bin
+    cpu0 VectorTableOffset `sysbus GetSymbolAddress "_vector_table"`
+    cpu0 EnableZephyrMode
+    cpu0 EnableProfilerCollapsedStack $ORIGIN/hello_world-profile true 62914560 maximumNestedContexts=10
+"""
+
+runMacro $reset

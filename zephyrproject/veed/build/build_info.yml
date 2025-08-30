@@ -1,0 +1,58 @@
+cmake:
+  application:
+    configuration-dir: '/home/simonas/zephyrproject/veed'
+    source-dir: '/home/simonas/zephyrproject/veed'
+  board:
+    name: 'stm32f746g_disco'
+    path:
+     - '/home/simonas/zephyrproject/zephyr/boards/st/stm32f746g_disco'
+    qualifiers: 'stm32f746xx'
+    revision: ''
+  devicetree:
+    bindings-dirs:
+     - '/home/simonas/zephyrproject/zephyr/dts/bindings'
+    files:
+     - '/home/simonas/zephyrproject/zephyr/boards/st/stm32f746g_disco/stm32f746g_disco.dts'
+    include-dirs:
+     - '/home/simonas/zephyrproject/modules/hal/ambiq/dts'
+     - '/home/simonas/zephyrproject/modules/hal/atmel/include'
+     - '/home/simonas/zephyrproject/modules/hal/bouffalolab/include'
+     - '/home/simonas/zephyrproject/modules/hal/bouffalolab/include/zephyr'
+     - '/home/simonas/zephyrproject/modules/hal/gigadevice/include'
+     - '/home/simonas/zephyrproject/modules/hal/microchip/include'
+     - '/home/simonas/zephyrproject/modules/hal/microchip/dts'
+     - '/home/simonas/zephyrproject/modules/hal/nuvoton/dts'
+     - '/home/simonas/zephyrproject/modules/hal/nxp/dts'
+     - '/home/simonas/zephyrproject/modules/hal/stm32/dts'
+     - '/home/simonas/zephyrproject/modules/hal/ti/dts'
+     - '/home/simonas/zephyrproject/zephyr/include'
+     - '/home/simonas/zephyrproject/zephyr/include/zephyr'
+     - '/home/simonas/zephyrproject/zephyr/dts/common'
+     - '/home/simonas/zephyrproject/zephyr/dts/vendor'
+     - '/home/simonas/zephyrproject/zephyr/dts/rx'
+     - '/home/simonas/zephyrproject/zephyr/dts/x86'
+     - '/home/simonas/zephyrproject/zephyr/dts/xtensa'
+     - '/home/simonas/zephyrproject/zephyr/dts/sparc'
+     - '/home/simonas/zephyrproject/zephyr/dts/riscv'
+     - '/home/simonas/zephyrproject/zephyr/dts/posix'
+     - '/home/simonas/zephyrproject/zephyr/dts/arm64'
+     - '/home/simonas/zephyrproject/zephyr/dts/arm'
+     - '/home/simonas/zephyrproject/zephyr/dts/arc'
+     - '/home/simonas/zephyrproject/zephyr/dts'
+  kconfig:
+    files:
+     - '/home/simonas/zephyrproject/zephyr/boards/st/stm32f746g_disco/stm32f746g_disco_defconfig'
+     - '/home/simonas/zephyrproject/veed/prj.conf'
+    user-files:
+     - '/home/simonas/zephyrproject/veed/prj.conf'
+  toolchain:
+    name: 'zephyr'
+    path: '/home/simonas/zephyrproject/zephyr-sdk-0.16.3'
+  zephyr:
+    version: '4.1.99'
+    zephyr-base: '/home/simonas/zephyrproject/zephyr'
+version: '0.1.0'
+west:
+  command: '/home/simonas/.local/bin/west build -b stm32f746g_disco -p'
+  topdir: '/home/simonas/zephyrproject'
+  version: '1.4.0'

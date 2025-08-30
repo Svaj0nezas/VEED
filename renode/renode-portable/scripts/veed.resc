@@ -1,0 +1,16 @@
+using sysbus
+mach create "veed"
+
+machine LoadPlatformDescription @platforms/boards/veed.repl
+
+emulation CreateSwitch "switch"
+connector Connect sysbus.mac switch
+
+emulation CreateTap "tap0" "tap"
+connector Connect host.tap switch
+
+showAnalyzer sysbus.usart1
+
+sysbus LoadELF @/home/simonas/zephyrproject/veed/build/zephyr/zephyr.elf
+
+start

@@ -1,0 +1,4 @@
+west:
+  command: /home/simonas/.local/bin/west build -b stm32f746g_disco -p
+  topdir: /home/simonas/zephyrproject
+  version: 1.4.0
