@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./backend
+    container_name: renode_backend
+    network_mode: "host"
+    environment:
+      - FLASK_ENV=production
+
+  frontend:
+    build: ./frontend
+    container_name: renode_frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - BACKEND_URL=http://10.10.0.1:8000
+    depends_on:
+      - backend
+    networks:
+      - renode-net
+
+networks:
+  renode-net:
+    driver: bridge

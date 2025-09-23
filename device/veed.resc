@@ -1,0 +1,17 @@
+using sysbus
+mach create "veed"
+
+logLevel 1
+
+machine LoadPlatformDescription @path/to/this/board/stm32f7_discovery-bb.repl
+
+emulation CreateSwitch "switch"
+connector Connect sysbus.ethernet switch
+
+emulation CreateTap "tap0" "tap"
+connector Connect host.tap switch
+
+sysbus LoadELF @device/zephyr.elf
+showAnalyzer sysbus.usart1
+
+start
