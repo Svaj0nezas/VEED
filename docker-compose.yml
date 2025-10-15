@@ -15,8 +15,17 @@ services:
       - "3000:3000"
     environment:
       - BACKEND_URL=http://10.10.0.1:8000
+      - NEXT_PUBLIC_BACKEND_URL=http://10.10.0.1:8000
+      - DATABASE_URL=file:./dev.db
+      - NEXTAUTH_URL=http://localhost:3000
+      - NEXTAUTH_SECRET=supersecretkey123
     depends_on:
       - backend
+    command: >
+      sh -c "
+        npx prisma migrate deploy &&
+        npm run start
+      "
     networks:
       - renode-net
 
