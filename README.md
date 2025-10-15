@@ -3,7 +3,7 @@ Virtual Embedded Example Device - university cybersecurity project
 
 # Steps to run the project
 1. Download renode
-2. Install docker: `https://docs.docker.com/engine/install/ubuntu/`
+2. Install docker: `https://docs.docker.com/engine/install/ubuntu/`, then run `sudo docker compose up --build`
 3. Follow the network setup
 4. Update the path in the `.resc` file to the board `stm32f7_discovery-bb.repl` to point where it is in your Renode directory
 5. Start backend and frontend with docker `docker compose up --build`
