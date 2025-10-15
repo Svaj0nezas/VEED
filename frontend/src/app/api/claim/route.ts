@@ -15,7 +15,7 @@ export async function POST(req: Request) {
     }
 
     // Forward OTP to Flask backend
-    const flaskRes = await fetch(`${process.env.BACKEND_URL}/devices/claim`, {
+    const flaskRes = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/devices/claim`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ code }),
