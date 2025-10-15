@@ -39,7 +39,7 @@ export default function Dashboard() {
     if (!otpCode.trim()) return;
     setLoading(true);
     try {
-      const res = await fetch(`${process.env.BACKEND_URL}/devices/claim`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/devices/claim`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ code: otpCode, user: username }),
@@ -73,7 +73,7 @@ export default function Dashboard() {
   const startToasting = async (deviceCode: string, duration: number) => {
     setLoading(true);
     try {
-      const res = await fetch(`${process.env.BACKEND_URL}/toaster/start`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/toaster/start`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ code: deviceCode, sec: duration }),
@@ -94,7 +94,7 @@ export default function Dashboard() {
   const stopToasting = async (deviceCode: string) => {
     setLoading(true);
     try {
-      const res = await fetch(`${process.env.BACKEND_URL}/toaster/stop`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/toaster/stop`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ code: deviceCode }),
@@ -115,7 +115,7 @@ export default function Dashboard() {
   // ---------------- Fetch status ----------------
   const fetchStatus = async () => {
     try {
-      const res = await fetch(`${process.env.BACKEND_URL}/toaster/status.json`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/toaster/status.json`);
       if (!res.ok) return;
       const data = await res.json();
       const { devices: backendDevices } = data;
