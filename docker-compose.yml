@@ -9,8 +9,11 @@ services:
       - FLASK_ENV=production
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     container_name: renode_frontend
+    network_mode: "host"
     ports:
       - "3000:3000"
     environment:
@@ -26,9 +29,9 @@ services:
         npx prisma migrate deploy &&
         npm run start
       "
-    networks:
-      - renode-net
+    # networks:
+    #   - renode-net
 
-networks:
-  renode-net:
-    driver: bridge
+# networks:
+#   renode-net:
+#     driver: bridge

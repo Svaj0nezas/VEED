@@ -5,8 +5,7 @@ import logging
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:3000"])
-
+CORS(app, resources={r"/*": {"origins": "*"}})
 # ---------------- Logging ----------------
 logging.basicConfig(
     level=logging.INFO,  # Use INFO to reduce clutter
