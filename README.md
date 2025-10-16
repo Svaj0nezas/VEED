@@ -10,6 +10,11 @@ Virtual Embedded Example Device - university cybersecurity project
 6. Launch Renode with the script `veed.resc`, command: `renode device/veed.resc`
 7. To avoid warning messages I recommend using `renode device/veed.resc 2>&1 | grep -v -i "warning" > renode.log` and looking at the log live
 
+# Editing and compiling the source code
+1. Under `/devices/zephyr` the source code and config file for the binary can be found.
+2. To recompile the source code, it should be placed in the zephyr project, under `/zephyrproject/zephyr/samples/net/sockets/http_client/src/main.c` and `/zephyrproject/zephyr/samples/net/sockets/http_client/prj.conf`.
+3. After placing these files and optionally editing them, the command `west build -b stm32f746g_disco` will generate a new zephyr.elf binary to use in Renode.
+
 # Network setup
 ```
 sudo ip link add renode-br0 type bridge
